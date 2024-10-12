@@ -1,25 +1,29 @@
 package gangnam.study.week4.assignment.users.domain.userMapper;
 
-import gangnam.study.week4.assignment.users.domain.dto.UserRequest;
+import gangnam.study.week4.assignment.users.domain.dto.UserRequestDto;
 import gangnam.study.week4.assignment.users.domain.dto.UserResponse;
+import gangnam.study.week4.assignment.users.domain.dto.UserResponseDto;
 import gangnam.study.week4.assignment.users.domain.entity.User;
 
 public class UserMapper {
 
-
-    public static User toUserSignup(UserRequest userRequest){
+    // UserRequestDto -> User 변환 메서드 (회원가입 시)
+    public static User toUserSignup(UserRequestDto userRequestDto) {
         return User.builder()
-                .name(userRequest.getName())
-                .email(userRequest.getEmail())
-                .password(userRequest.getPassword())
+                .username(userRequestDto.getUsername())
+                .password(userRequestDto.getPassword())
+                .email(userRequestDto.getEmail())
+                .department(userRequestDto.getDepartment())
                 .build();
     }
 
-    public static UserResponse toUserResponse(User user){
-        return UserResponse.builder()
-                .name(user.getName())
+    public static UserResponseDto toUserResponseDto(User user) {
+        return UserResponseDto.builder()
+                .name(user.getUsername())
                 .build();
     }
+
+
 
 
 }

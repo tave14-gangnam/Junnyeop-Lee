@@ -7,13 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class UserRequest {
+@AllArgsConstructor
+public class CommentRequestDto {
 
-    private String email;
-
-    private String name; // 고객 이름
-
-    private String password;
+    private String content;  // 댓글 내용
 }
